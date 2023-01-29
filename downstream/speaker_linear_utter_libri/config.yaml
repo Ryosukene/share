@@ -24,10 +24,10 @@ downstream_expert:
     train_batch_size: 32 
     #eval_batch_size: 32
     eval_batch_size: 32
-    libri_root: '/home/negiryosuke/refine/s3prl/ECoG_data/Chibi_20120730_session1_CommonAve_ReginLabel/'
+    libri_root: '/$share/george_20120724_session1_CommonAve_ReginLabel/'
     #libri_root: '/home/negiryosuke/refine/s3prl/e_data_downstream_george_20120724_session1_20s_split/'
-    split_file: '/home/negiryosuke/refine/s3prl/downstream/speaker_linear_utter_libri/data/'
-    bucket_file: '/home/negiryosuke/refine/s3prl/ECoG_data/Chibi_20120730_session1_CommonAve_ReginLabel/E_data_len_for_bucket/'
+    split_file: '/$share/downstream/speaker_linear_utter_libri/data/'
+    bucket_file: '/$share/george_20120724_session1_CommonAve_ReginLabel//E_data_len_for_bucket/'
     #bucket_file: '/home/negiryosuke/refine/s3prl/e_data_downstream_george_20120724_session1_20s_split/E_data_len_for_bucket'
 
     sample_rate: 16000 # this should not be changed, and this should match the sr of the audio in `libri_root`

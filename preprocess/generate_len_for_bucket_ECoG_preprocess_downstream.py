@@ -76,12 +76,12 @@ def generate_length(args, tr_set, audio_extension):
             assert NotImplementedError
 
         print('')#/home/negiryosuke/try/s3prl-master/s3prl/E_data5/
-        todo = list(Path(os.path.join('/home/negiryosuke/refine/s3prl/ECoG_data/Chibi_20120730_session1_CommonAve_ReginLabel/', s)).rglob('*' + '.pt')) # '*.flac'
+        todo = list(Path(os.path.join('/$share/pathroot/', s)).rglob('*' + '.pt')) # '*.flac'
         print(f'Preprocessing data in: {s}, {len(todo)} audio files found.')
 
         #output_dir = os.path.join('/home/negiryosuke/try/s3prl-master/s3prl/E_data/E_data_len_for_bucket', args.name)
-        output_dir = '/home/negiryosuke/refine/s3prl/ECoG_data/Chibi_20120730_session1_CommonAve_ReginLabel/E_data_len_for_bucket'
-        if not os.path.exists( '/home/negiryosuke/refine/s3prl/ECoG_data/Chibi_20120730_session1_CommonAve_ReginLabel/E_data_len_for_bucket'): os.makedirs( '/home/negiryosuke/refine/s3prl/ECoG_data/Chibi_20120730_session1_CommonAve_ReginLabel/E_data_len_for_bucket')
+        output_dir = '/$share/pathroot/E_data_len_for_bucket'
+        if not os.path.exists( '/$share/pathroot/E_data_len_for_bucket'): os.makedirs( '/$share/pathroot/E_data_len_for_bucket')
         print('Extracting audio length...', flush=True)
         tr_x = Parallel(n_jobs=args.n_jobs)(delayed(extract_length)(str(file)) for file in tqdm(todo))
 
