@@ -160,7 +160,7 @@ class DownstreamExpert(nn.Module):
             # pathroot='_'
             #pathroot='/home/negiryosuke/refine/s3prl/predict/predict_Su_CommonAve_RegionLabel_MeanSpectrogram'
             #pathroot='/home/negiryosuke/refine/s3prl/predict/predict_M4_RegionLabel'
-            pathroot='/home/negiryosuke/refine/s3prl/predict/sample'
+            pathroot='/$share/predict/sample'
             #pathroot ='predict_Chibi_CommonAve'
             #pathroot='predict_George_Common_Ave'
             if os.path.isdir(pathroot+'/'+str(i)):
@@ -185,32 +185,6 @@ class DownstreamExpert(nn.Module):
              #print('predicted_classid',predicted_classid)
             break
             
-        ''' 
-        for i in range(len(labels)):
-            for j in range(100):
-                num=int(labels[i])
-                dic=pathroot+'/vector/'+str(num+1)+'/'+str(j)
-                if os.path.isfile(dic):
-                    pass
-                else:
-                    #os.mkdir(pathroot+'/vector/'+str(i+1))
-                    torch.save(predicted[i],dic)
-                    break
-        '''
-
-    
-
-
-        '''
-        #print('labels',labels)
-        #print('predicted_classid',predicted_classid)
-        #predicted = predicted.numpy()
-        #np.save('predict', predicted)
-        
-        with open(self.logging_predict, 'a') as f:
-            f.write(predicted)
-        '''
-        
         return loss
 
     # interface
