@@ -25,7 +25,7 @@ cd /home/hoge/$share　でカレントディレクトリを移動
 python run_pretrain.py -u tera -g pretrain/tera/config_model.yaml -n 'resultに保存するファイル名'
 で事前学習の実行
 
-2.Finetunig  
+2. Fine-Tunig  
 `cd s3prl`
 `python3 run_downstream.py -m train -n ExpName -u tera_local -k $TERA_ECOG/s3prl/result/pretrain/YourModelName/states-500000.ckpt -d speaker_linear_utter_libri`  
 といったようなコマンドで学習が実行される
