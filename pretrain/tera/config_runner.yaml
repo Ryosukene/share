@@ -1,0 +1,29 @@
+runner:
+  n_epochs: -1
+  #total_steps: 1000000
+  total_steps: 1100000
+  gradient_clipping: 5.0
+  gradient_accumulate_steps: 4
+
+  log_step: 100000
+  save_step: 100000
+  max_keep: 10
+
+  fp16: false
+
+optimizer:
+  name: AdamW_with_schedule
+  lr: 2.e-4
+  warmup_proportion: 0.07
+
+pretrain_expert:
+  datarc:
+    num_workers: 8
+    train_batch_size: 8
+    max_timestep: -25 # Max length for audio feature (0 for no restriction, negative value to set minimum timestep)
+    #libri_root: '/home/negiryosuke/refine/s3prl/e_data_pretrain_george_20120724_session1_5s_split' # If raw libri data is provided, use on-the-fly feature extraction, else use the pre-extracted ＃＃features under `file_path`
+    libri_root: '/home/negiryosuke/refine/s3prl/ECoG_data/george_20120724_session1_CommonAve_ReginLabel/' 
+    #file_path:  '/home/negiryosuke/refine/s3prl/e_data_pretrain_george_20120724_session1_5s_split/E_data_len_for_bucket'  # Pre-extracted features path. When using on-the-fly feature extraction, this is used to provide length for bucketing.
+    file_path:  '/home/negiryosuke/refine/s3prl/ECoG_data/george_20120724_session1_CommonAve_ReginLabel/E_data_len_for_bucket' 
+    #sets: ['train-clean-100', 'train-clean-360', 'train-other-500'] # can be the subset of ['train-clean-100', 'train-clean-360', 'train-other-500']
+    sets: ['train']
