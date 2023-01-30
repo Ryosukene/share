@@ -4,7 +4,7 @@ ECoGデータを用いて事前学習済したモデルを脳の電極の識別�
 
 ## 使い方  
 このレポジトリのディレクトリを`$share`とする。  
-例：`$share=/home/hoge/share` (ホームディレクトリのエイリアス`~`は使用不可)
+例：`$share=/home/hoge/share` 
 
 0. インストール ([参考](https://github.com/s3prl/s3prl#installation))  
 ```
