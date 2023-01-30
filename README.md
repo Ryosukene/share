@@ -13,7 +13,6 @@ pip install -e .
 ```
 
 1. 事前学習
-
  1-1
  /$share/pretrain/tera/config_runner.yamlのrootの部分を書き換える
  (ここではgeorge_20120724_session1_CommonAve_ReginLabelを用いる。)
