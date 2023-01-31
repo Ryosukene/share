@@ -19,7 +19,7 @@ pip install -e .
  1-2 
  cd /home/hoge/$share　でカレントディレクトリを移動
  1-3
- `$share/downstream/speaker_linear_utter_libri/config.yaml`内の`$TERA_ECOG`の部分を書き換える。
+ `$share/downstream/speaker_linear_utter_libri/config.yaml`内の`$share`の部分を書き換える。
  (ここではgeorge_20120724_session1_CommonAve_ReginLabelを用いる。)
  1-4
  python run_pretrain.py -u tera -g pretrain/tera/config_model.yaml -n 'resultに保存するファイル名'
