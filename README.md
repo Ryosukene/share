@@ -19,7 +19,7 @@ pip install -e .
  1-2 
  cd /home/hoge/$share　でカレントディレクトリを移動
  1-3
- `$TERA_ECOG/s3prl/downstream/speaker_linear_utter_libri/config.yaml`内の`$TERA_ECOG`の部分を書き換える。
+ `$share/downstream/speaker_linear_utter_libri/config.yaml`内の`$TERA_ECOG`の部分を書き換える。
  (ここではgeorge_20120724_session1_CommonAve_ReginLabelを用いる。)
  1-4
  python run_pretrain.py -u tera -g pretrain/tera/config_model.yaml -n 'resultに保存するファイル名'
@@ -27,7 +27,7 @@ pip install -e .
 
 2. Fine-Tunig  
 `cd s3prl`
-`python3 run_downstream.py -m train -n ExpName -u tera_local -k $TERA_ECOG/s3prl/result/pretrain/YourModelName/states-500000.ckpt -d speaker_linear_utter_libri`  
+`python3 run_downstream.py -m train -n ExpName -u tera_local -k $share/result/pretrain/YourModelName/states-500000.ckpt -d speaker_linear_utter_libri`  
 といったようなコマンドで学習が実行される
 
 3. テスト  
