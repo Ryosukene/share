@@ -203,31 +203,34 @@ class OnlinePreprocessor(torch.nn.Module):
                         
                 _list.append(mean_data)
             return _list
+        
+        def shuffle_time(tensor):
+            _list=[]
+            device=tensor[0].device
+            for data in tensor:
+                data_shape=data.shape
+                shuffle_time_data=data[torch.randperm(data.size()[0])]
+                _list.append(shuffle_time_data)
+            return _list            
         #torch.set_default_tensor_type('torch.cuda.FloatTensor')
         local_variables = locals()
         #print('self_transpose_list',self._transpose_list([select_feat(local_variables, **args) for args in feat_list]))
+        '''
         x=self._transpose_list([select_feat(local_variables, **args) for args in feat_list])
         #print(torch.cuda.is_available())
         #print('x',x)
         _mean_data=mean_spectrogram(x)
         #print('_mean_data',_mean_data)
-        mean_data=[]
-        device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-        '''
-        for data in _mean_data:
-            data=data
-            mean_data.append(data)
-            print('mean_data',mean_data)
-        '''
         
-        torch.save(x, '/home/negiryosuke/refine/s3prl/alter_spectrogram/x.pt')
-        torch.save(_mean_data[0], '/home/negiryosuke/refine/s3prl/alter_spectrogram/mean.pt')
-        #torch.save(mean_data, '/home/negiryosuke/refine/s3prl/alter_spectrogram/tensor_mean1.pt')
+        device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+        
         
         return _mean_data
-        
-        
-        #return self._transpose_list([select_feat(local_variables, **args) for args in feat_list])
+        '''
+        #x=self._transpose_list([select_feat(local_variables, **args) for args in feat_list])
+        #shuffle_time=shuffle_time(x)
+        #return shuffle_time
+        return self._transpose_list([select_feat(local_variables, **args) for args in feat_list])
         # return: [(*, max_len, feat_dim), ...]
 
     def istft(self, linears=None, phases=None, linear_power=2, complxs=None):
