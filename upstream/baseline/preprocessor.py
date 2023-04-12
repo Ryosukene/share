@@ -184,6 +184,9 @@ class OnlinePreprocessor(torch.nn.Module):
             # return: (*, feat_dim, max_len)
         
         def mean_spectrogram(tensor):
+        #周波数を平均化するための関数
+        #引数tensorの形状は[[~,時間,チャンネル数],・・・]というリスト形式で与えられている。
+        #リストの各要素を時間軸方向に平均化した_listを返り値としている。
             _list=[]
             #device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
             device=tensor[0].device
